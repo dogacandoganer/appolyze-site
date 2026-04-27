@@ -4,48 +4,62 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Appolyze - Smart Storage Cleaner for Android</title>
-
+  <title>Appolyze: Phone Cleaner & Storage Cleaner for Android</title>
   <meta
     name="description"
-    content="Appolyze is a smart storage cleaner for Android that helps you free up space, remove duplicate photos, clean screenshots, manage downloads, detect similar and blurry images, find large files and optimize device storage with a modern user-friendly experience."
+    content="Appolyze is a smart Android phone cleaner and storage cleaner that helps you free up space, remove duplicate photos, clean screenshots, find large files, manage downloads, clean WhatsApp media and organize device storage safely."
   />
   <meta
     name="keywords"
-    content="Appolyze, storage cleaner, android cleaner, duplicate photos cleaner, smart cleanup, screenshot cleaner, large files finder, phone cleaner, android storage manager"
+    content="Appolyze, phone cleaner, storage cleaner, Android cleaner, duplicate photo cleaner, smart cleanup, screenshot cleaner, large files finder, WhatsApp cleaner, storage analyzer, clean storage, free up space"
   />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#e3eaf2" />
+  <link rel="canonical" href="https://appolyze.com/" />
 
-  <meta property="og:title" content="Appolyze - Smart Storage Cleaner for Android" />
+  <meta property="og:title" content="Appolyze: Phone Cleaner & Storage Cleaner for Android" />
   <meta
     property="og:description"
-    content="Free up space, clean duplicate photos, manage downloads and optimize storage with Appolyze."
+    content="Free up Android storage, remove duplicate photos, clean screenshots, find large files and manage WhatsApp media safely with Appolyze."
   />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://appolyze.com/" />
   <meta property="og:image" content="logo.png" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Appolyze - Smart Storage Cleaner for Android" />
+  <meta name="twitter:title" content="Appolyze: Phone Cleaner & Storage Cleaner for Android" />
   <meta
     name="twitter:description"
-    content="A modern Android storage cleaner with smart cleanup, duplicate photo removal and powerful storage tools."
+    content="A smart Android cleaner for duplicate photos, screenshots, downloads, large files, WhatsApp media and safe storage cleanup."
   />
   <meta name="twitter:image" content="logo.png" />
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Appolyze: Phone Cleaner",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Android",
+    "description": "Appolyze is a smart Android phone cleaner and storage cleaner that helps users free up space, remove duplicate photos, clean screenshots, find large files, manage downloads and clean WhatsApp media safely.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <style>
     :root {
       --bg: #e3eaf2;
       --bg-2: #dbe4ed;
-      --surface: rgba(255, 255, 255, 0.95);
-      --surface-2: rgba(255, 255, 255, 0.86);
+      --surface: rgba(255, 255, 255, 0.94);
+      --surface-2: rgba(255, 255, 255, 0.82);
       --line: #cfd9e4;
       --text: #102033;
       --muted: #5e7187;
@@ -53,805 +67,144 @@
       --blue: #1a88ff;
       --blue-2: #2a73ff;
       --cyan: #19c8ff;
+      --green: #12b981;
       --shadow: 0 18px 50px rgba(16, 32, 51, 0.08);
+      --strong-shadow: 0 28px 80px rgba(26, 136, 255, 0.16);
       --container: 1220px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: "Inter", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 10% 8%, rgba(26, 136, 255, 0.06), transparent 24%),
-        radial-gradient(circle at 88% 4%, rgba(25, 200, 255, 0.05), transparent 20%),
-        linear-gradient(180deg, var(--bg) 0%, #dfe7ef 52%, var(--bg-2) 100%);
+        radial-gradient(circle at 9% 8%, rgba(26, 136, 255, 0.09), transparent 25%),
+        radial-gradient(circle at 88% 4%, rgba(25, 200, 255, 0.08), transparent 22%),
+        linear-gradient(180deg, var(--bg) 0%, #dfe7ef 48%, var(--bg-2) 100%);
       line-height: 1.6;
       overflow-x: hidden;
     }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    .container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
+
+    .orb { position: fixed; border-radius: 999px; filter: blur(72px); pointer-events: none; z-index: 0; opacity: .72; animation: floatOrb 10s ease-in-out infinite; }
+    .orb-1 { width: 260px; height: 260px; left: -70px; top: 90px; background: rgba(26, 136, 255, .13); }
+    .orb-2 { width: 240px; height: 240px; right: -65px; top: 230px; background: rgba(25, 200, 255, .11); animation-delay: -3s; }
+
+    .header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(18px); background: rgba(228,235,243,.92); border-bottom: 1px solid rgba(207,217,228,.95); }
+    .header-inner { min-height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand-logo { width: 52px; height: 52px; border-radius: 16px; object-fit: cover; background: white; box-shadow: 0 14px 30px rgba(26,136,255,.16); }
+    .brand-title { font-size: 18px; font-weight: 900; letter-spacing: -.35px; }
+    .brand-subtitle { font-size: 12px; color: var(--muted); }
+    .nav { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; font-size: 15px; font-weight: 800; color: #314356; }
+    .nav a { position: relative; padding: 6px 0; transition: color .2s ease; }
+    .nav a::after { content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px; border-radius:999px; background:linear-gradient(90deg,var(--blue),var(--cyan)); transform:scaleX(0); transition:transform .2s ease; }
+    .nav a:hover { color: var(--blue-2); }
+    .nav a:hover::after { transform: scaleX(1); }
+
+    .hero { position: relative; padding: 74px 0 60px; }
+    .hero::after { content:""; position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:min(1180px, calc(100% - 48px)); height:1px; background:linear-gradient(90deg,transparent,rgba(26,136,255,.22),rgba(25,200,255,.30),transparent); }
+    .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; gap: 54px; align-items: center; }
+    .eyebrow { display:inline-flex; align-items:center; gap:10px; padding:10px 16px; border-radius:999px; background:rgba(255,255,255,.88); border:1px solid var(--line); box-shadow:0 10px 28px rgba(16,32,51,.05); color:var(--blue-2); font-size:13px; font-weight:800; }
+    .eyebrow-dot { width:9px; height:9px; border-radius:50%; background:linear-gradient(135deg,var(--blue),var(--cyan)); box-shadow:0 0 0 6px rgba(26,136,255,.11); }
+    h1 { margin-top:20px; font-size:64px; line-height:1.02; letter-spacing:-2.5px; font-weight:900; max-width:780px; }
+    h1 .accent, .accent { background:linear-gradient(135deg,var(--blue-2),var(--cyan)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .hero-copy p { margin-top:22px; max-width:690px; color:var(--muted); font-size:18px; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:32px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:15px 24px; border-radius:18px; border:1px solid transparent; font-size:15px; font-weight:800; transition:transform .22s ease, box-shadow .22s ease, background .22s ease; cursor:pointer; }
+    .btn:hover { transform: translateY(-2px) scale(1.01); }
+    .btn-primary { color:#fff; background:linear-gradient(135deg,var(--blue-2),var(--cyan)); box-shadow:0 18px 36px rgba(26,136,255,.24); position:relative; overflow:hidden; }
+    .btn-primary::before { content:""; position:absolute; top:0; left:-120%; width:80%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.30),transparent); transform:skewX(-20deg); transition:left .55s ease; }
+    .btn-primary:hover::before { left:140%; }
+    .btn-secondary { color:var(--text); background:rgba(255,255,255,.92); border-color:var(--line); box-shadow:0 10px 24px rgba(16,32,51,.05); }
+
+    .trust-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+    .trust-pill { display:inline-flex; align-items:center; gap:8px; padding:9px 12px; border-radius:999px; background:rgba(255,255,255,.78); border:1px solid var(--line); color:#314356; font-size:13px; font-weight:800; }
+    .check { width:18px; height:18px; border-radius:999px; display:grid; place-items:center; background:rgba(18,185,129,.12); color:var(--green); font-weight:900; }
+
+    .hero-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:28px; max-width:710px; }
+    .card, .stat-card { background:var(--surface); border:1px solid var(--line); box-shadow:var(--shadow); backdrop-filter:blur(14px); transition:box-shadow .22s ease, transform .22s ease, border-color .22s ease; }
+    .stat-card { padding:18px; border-radius:24px; }
+    .stat-card:hover, .card:hover { transform:translateY(-4px); box-shadow:0 20px 44px rgba(26,136,255,.08); border-color:rgba(26,136,255,.22); }
+    .stat-card strong { display:block; font-size:30px; letter-spacing:-1px; line-height:1; }
+    .stat-card span { display:block; margin-top:6px; color:var(--muted); font-size:14px; }
+
+    .visual-side { min-height:730px; display:flex; align-items:center; justify-content:center; position:relative; }
+    .visual-glow { position:absolute; width:560px; height:560px; border-radius:50%; background:radial-gradient(circle, rgba(26,136,255,.16), transparent 60%); z-index:0; animation:floatOrb 8s ease-in-out infinite; }
+    .floating-note { position:absolute; z-index:3; border-radius:22px; padding:14px 16px; min-width:184px; background:rgba(255,255,255,.92); border:1px solid var(--line); box-shadow:var(--shadow); animation:floatY 5s ease-in-out infinite; }
+    .floating-note small { display:block; color:var(--muted); font-size:12px; margin-bottom:4px; font-weight:700; }
+    .floating-note strong { font-size:20px; letter-spacing:-.5px; }
+    .note-1 { left:10px; top:100px; }
+    .note-2 { right:0; top:184px; animation-delay:-1.6s; }
+    .note-3 { left:34px; bottom:98px; animation-delay:-2.8s; }
+    .android-phone { position:relative; width:372px; height:744px; border-radius:42px; padding:12px; background:linear-gradient(160deg,#121d2f,#050b15 54%,#132034 100%); border:1px solid rgba(0,0,0,.08); box-shadow:0 30px 100px rgba(0,0,0,.22); z-index:2; animation:phoneFloat 6s ease-in-out infinite; }
+    .android-phone::before { content:""; position:absolute; top:10px; left:50%; transform:translateX(-50%); width:108px; height:22px; border-radius:0 0 18px 18px; background:#03060b; z-index:5; }
+    .android-phone::after { content:""; position:absolute; top:18px; left:50%; transform:translateX(-50%); width:56px; height:8px; border-radius:999px; background:rgba(255,255,255,.08); z-index:6; }
+    .screen { width:100%; height:100%; border-radius:32px; overflow:hidden; position:relative; background:linear-gradient(180deg,#091321 0%,#0b1321 100%); border:1px solid rgba(255,255,255,.04); }
+    .screen-shot { width:100%; height:100%; object-fit:cover; object-position:top center; }
+
+    .section { position:relative; z-index:2; padding:64px 0 86px; }
+    .section-head { max-width:800px; margin:0 auto; text-align:center; }
+    .section-head .label { color:var(--blue-2); font-size:14px; font-weight:900; letter-spacing:.2px; text-transform:uppercase; }
+    .section-head h2 { margin-top:12px; font-size:44px; line-height:1.08; letter-spacing:-1.4px; }
+    .section-head p { margin-top:14px; color:var(--muted); font-size:17px; }
+
+    .problem-grid, .features-grid, .how-grid, .apps-grid { margin-top:36px; display:grid; gap:18px; }
+    .problem-grid { grid-template-columns:repeat(3,1fr); }
+    .problem-card { padding:26px; border-radius:30px; }
+    .problem-card h3 { font-size:21px; line-height:1.2; letter-spacing:-.5px; }
+    .problem-card p { margin-top:10px; color:var(--muted); font-size:15px; }
+
+    .features-grid { grid-template-columns:repeat(4,1fr); }
+    .feature-card { padding:24px; border-radius:28px; }
+    .icon-box { width:52px; height:52px; border-radius:18px; display:grid; place-items:center; background:linear-gradient(135deg,rgba(26,136,255,.13),rgba(25,200,255,.13)); color:var(--blue-2); border:1px solid rgba(26,136,255,.10); }
+    .feature-card h3 { margin-top:16px; font-size:18px; line-height:1.26; letter-spacing:-.4px; }
+    .feature-card p { margin-top:10px; color:var(--muted); font-size:14px; }
+
+    .funnel-box { margin-top:38px; border-radius:34px; padding:34px; background:linear-gradient(135deg,rgba(26,136,255,.12),rgba(25,200,255,.10)); border:1px solid rgba(26,136,255,.18); box-shadow:var(--strong-shadow); }
+    .funnel-box h2 { font-size:38px; line-height:1.08; letter-spacing:-1.2px; max-width:760px; }
+    .funnel-box p { margin-top:14px; color:var(--muted); max-width:790px; font-size:17px; }
+
+    .how-grid { grid-template-columns:repeat(4,1fr); }
+    .how-card { padding:28px; border-radius:28px; }
+    .step-number { width:54px; height:54px; border-radius:18px; display:grid; place-items:center; font-size:22px; font-weight:900; color:#fff; background:linear-gradient(135deg,var(--blue-2),var(--cyan)); box-shadow:0 14px 28px rgba(26,136,255,.20); }
+    .how-card h3 { margin-top:18px; font-size:22px; letter-spacing:-.5px; }
+    .how-card p { margin-top:10px; color:var(--muted); font-size:15px; }
+
+    .privacy-strip { margin-top:34px; padding:28px; border-radius:30px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+    .privacy-item strong { display:block; font-size:17px; }
+    .privacy-item span { display:block; margin-top:6px; color:var(--muted); font-size:14px; }
+
+    .other-apps-box, .download-box { margin-top:36px; border-radius:32px; overflow:hidden; }
+    .other-apps-box { padding:32px; }
+    .other-apps-box h3 { font-size:26px; letter-spacing:-.6px; }
+    .other-apps-box p { margin-top:10px; color:var(--muted); font-size:16px; }
+    .apps-grid { grid-template-columns:repeat(4,1fr); }
+    .app-card { height:100%; padding:20px; border-radius:24px; background:var(--surface-2); border:1px solid var(--line); transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease; }
+    .app-card:hover { transform:translateY(-6px); border-color:rgba(26,136,255,.32); box-shadow:0 20px 42px rgba(26,136,255,.08); }
+    .app-card strong { display:block; margin-top:14px; font-size:17px; letter-spacing:-.35px; }
+    .app-card span { display:block; margin-top:6px; color:var(--muted); font-size:14px; }
 
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: 100%;
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 0 24px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .orb {
-      position: fixed;
-      border-radius: 999px;
-      filter: blur(70px);
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.6;
-      animation: floatOrb 10s ease-in-out infinite;
-    }
-
-    .orb-1 {
-      width: 250px;
-      height: 250px;
-      left: -70px;
-      top: 90px;
-      background: rgba(26, 136, 255, 0.1);
-    }
-
-    .orb-2 {
-      width: 220px;
-      height: 220px;
-      right: -60px;
-      top: 220px;
-      background: rgba(25, 200, 255, 0.08);
-      animation-delay: -3s;
-    }
-
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(16px);
-      background: rgba(228, 235, 243, 0.92);
-      border-bottom: 1px solid rgba(207, 217, 228, 0.95);
-    }
-
-    .header-inner {
-      min-height: 84px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand-link {
-      display: inline-flex;
-      text-decoration: none;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .brand-logo {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      object-fit: cover;
-      background: white;
-      box-shadow: 0 14px 30px rgba(26, 136, 255, 0.16);
-      animation: pulseSoft 4.8s ease-in-out infinite;
-    }
-
-    .brand-title {
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: -0.35px;
-    }
-
-    .brand-subtitle {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      flex-wrap: wrap;
-      font-size: 15px;
-      font-weight: 700;
-      color: #314356;
-    }
-
-    .nav a {
-      position: relative;
-      padding: 6px 0;
-      transition: color 0.2s ease;
-    }
-
-    .nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -6px;
-      height: 2px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--blue), var(--cyan));
-      transform: scaleX(0);
-      transition: transform 0.2s ease;
-    }
-
-    .nav a:hover {
-      color: var(--blue-2);
-    }
-
-    .nav a:hover::after {
-      transform: scaleX(1);
-    }
-
-    .hero {
-      position: relative;
-      padding: 74px 0 54px;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: 0;
-      transform: translateX(-50%);
-      width: min(1180px, calc(100% - 48px));
-      height: 1px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(26, 136, 255, 0.22),
-        rgba(25, 200, 255, 0.28),
-        transparent
-      );
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.02fr 0.98fr;
-      gap: 54px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.88);
-      border: 1px solid var(--line);
-      box-shadow: 0 10px 28px rgba(16, 32, 51, 0.05);
-      color: var(--blue-2);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .eyebrow-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--blue), var(--cyan));
-      box-shadow: 0 0 0 6px rgba(26, 136, 255, 0.11);
-    }
-
-    h1 {
-      margin-top: 20px;
-      font-size: 60px;
-      line-height: 1.03;
-      letter-spacing: -2.1px;
-      font-weight: 800;
-      max-width: 760px;
-    }
-
-    h1 .accent {
-      background: linear-gradient(135deg, var(--blue-2), var(--cyan));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-copy p {
-      margin-top: 22px;
-      max-width: 650px;
-      color: var(--muted);
-      font-size: 18px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 32px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 15px 24px;
-      border-radius: 18px;
-      border: 1px solid transparent;
-      font-size: 15px;
-      font-weight: 700;
-      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px) scale(1.01);
-    }
-
-    .btn-primary {
-      color: #fff;
-      background: linear-gradient(135deg, var(--blue-2), var(--cyan));
-      box-shadow: 0 18px 36px rgba(26, 136, 255, 0.22);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-primary::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -120%;
-      width: 80%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
-      transform: skewX(-20deg);
-      transition: left 0.55s ease;
-    }
-
-    .btn-primary:hover::before {
-      left: 140%;
-    }
-
-    .btn-secondary {
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.9);
-      border-color: var(--line);
-      box-shadow: 0 10px 24px rgba(16, 32, 51, 0.05);
-    }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 28px;
-      max-width: 710px;
-    }
-
-    .card,
-    .stat-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
-      transition: box-shadow 0.22s ease, transform 0.22s ease, border-color 0.22s ease;
-    }
-
-    .stat-card {
-      padding: 18px;
-      border-radius: 24px;
-      animation: fadeUp 0.75s ease both;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 44px rgba(26, 136, 255, 0.08);
-      border-color: rgba(26, 136, 255, 0.22);
-    }
-
-    .stat-card strong {
-      display: block;
-      font-size: 30px;
-      letter-spacing: -1px;
-      line-height: 1;
-    }
-
-    .stat-card span {
-      display: block;
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .visual-side {
-      min-height: 730px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .visual-glow {
-      position: absolute;
-      width: 540px;
-      height: 540px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(26, 136, 255, 0.13), transparent 60%);
-      z-index: 0;
-      animation: floatOrb 8s ease-in-out infinite;
-    }
-
-    .floating-note {
-      position: absolute;
-      z-index: 3;
-      border-radius: 22px;
-      padding: 14px 16px;
-      min-width: 182px;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      animation: floatY 5s ease-in-out infinite;
-    }
-
-    .floating-note small {
-      display: block;
-      color: var(--muted);
-      font-size: 12px;
-      margin-bottom: 4px;
-    }
-
-    .floating-note strong {
-      font-size: 20px;
-      letter-spacing: -0.5px;
-    }
-
-    .note-1 {
-      left: 10px;
-      top: 100px;
-    }
-
-    .note-2 {
-      right: 0;
-      top: 184px;
-      animation-delay: -1.6s;
-    }
-
-    .note-3 {
-      left: 34px;
-      bottom: 98px;
-      animation-delay: -2.8s;
-    }
-
-    .android-phone {
-      position: relative;
-      width: 372px;
-      height: 744px;
-      border-radius: 42px;
-      padding: 12px;
-      background: linear-gradient(160deg, #121d2f, #050b15 54%, #132034 100%);
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.22);
-      z-index: 2;
-      animation: phoneFloat 6s ease-in-out infinite;
-    }
+    .download-box { text-align:center; padding:52px 32px; background:linear-gradient(135deg,rgba(26,136,255,.14),rgba(25,200,255,.12)); border:1px solid rgba(26,136,255,.18); box-shadow:var(--strong-shadow); }
+    .download-box h2 { font-size:46px; line-height:1.06; letter-spacing:-1.5px; max-width:820px; margin:0 auto; }
+    .download-box p { margin:16px auto 0; max-width:800px; color:var(--muted); font-size:17px; }
+    .footer { padding:26px 0 48px; text-align:center; color:var(--muted-2); font-size:14px; }
 
-    .android-phone::before {
-      content: "";
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 108px;
-      height: 22px;
-      border-radius: 0 0 18px 18px;
-      background: #03060b;
-      z-index: 5;
-    }
-
-    .android-phone::after {
-      content: "";
-      position: absolute;
-      top: 18px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 56px;
-      height: 8px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.08);
-      z-index: 6;
-    }
-
-    .screen {
-      width: 100%;
-      height: 100%;
-      border-radius: 32px;
-      overflow: hidden;
-      position: relative;
-      background: linear-gradient(180deg, #091321 0%, #0b1321 100%);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-    }
-
-    .screen-shot {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-    }
-
-    .section {
-      position: relative;
-      z-index: 2;
-      padding: 54px 0 90px;
-    }
-
-    .section-head {
-      max-width: 780px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .section-head .label {
-      color: var(--blue-2);
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.2px;
-    }
-
-    .section-head h2 {
-      margin-top: 12px;
-      font-size: 44px;
-      line-height: 1.08;
-      letter-spacing: -1.4px;
-    }
-
-    .section-head p {
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .features-grid {
-      margin-top: 36px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .feature-card {
-      padding: 24px;
-      border-radius: 28px;
-      animation: fadeUp 0.8s ease both;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(26, 136, 255, 0.32);
-      box-shadow: 0 22px 50px rgba(26, 136, 255, 0.1);
-    }
-
-    .icon-box {
-      width: 52px;
-      height: 52px;
-      border-radius: 18px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, rgba(26, 136, 255, 0.13), rgba(25, 200, 255, 0.13));
-      color: var(--blue-2);
-      border: 1px solid rgba(26, 136, 255, 0.1);
-    }
-
-    .feature-card h3 {
-      margin-top: 16px;
-      font-size: 18px;
-      line-height: 1.26;
-      letter-spacing: -0.4px;
-    }
-
-    .feature-card p {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .how-grid {
-      margin-top: 36px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .how-card {
-      padding: 28px;
-      border-radius: 28px;
-    }
-
-    .step-number {
-      width: 54px;
-      height: 54px;
-      border-radius: 18px;
-      display: grid;
-      place-items: center;
-      font-size: 22px;
-      font-weight: 800;
-      color: #fff;
-      background: linear-gradient(135deg, var(--blue-2), var(--cyan));
-      box-shadow: 0 14px 28px rgba(26, 136, 255, 0.2);
-    }
-
-    .how-card h3 {
-      margin-top: 18px;
-      font-size: 22px;
-      letter-spacing: -0.5px;
-    }
-
-    .how-card p {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .other-apps-box,
-    .download-box {
-      margin-top: 36px;
-      border-radius: 32px;
-      overflow: hidden;
-    }
-
-    .other-apps-box {
-      padding: 32px;
-    }
-
-    .other-apps-box h3 {
-      font-size: 26px;
-      letter-spacing: -0.6px;
-    }
-
-    .other-apps-box p {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 16px;
-    }
+    @keyframes floatOrb { 0%,100%{transform:translateY(0)} 50%{transform:translateY(16px)} }
+    @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    @keyframes phoneFloat { 0%,100%{transform:translateY(0) rotate(0)} 50%{transform:translateY(-10px) rotate(-.5deg)} }
 
-    .apps-grid {
-      margin-top: 24px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+    @media (max-width:1120px){
+      .hero-grid{grid-template-columns:1fr}.features-grid{grid-template-columns:repeat(2,1fr)}.how-grid{grid-template-columns:repeat(2,1fr)}.apps-grid{grid-template-columns:repeat(2,1fr)}.problem-grid{grid-template-columns:1fr}.visual-side{min-height:auto;padding-top:10px}.privacy-strip{grid-template-columns:1fr}
     }
-
-    .app-link {
-      display: block;
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .app-card {
-      height: 100%;
-      padding: 20px;
-      border-radius: 24px;
-      background: var(--surface-2);
-      border: 1px solid var(--line);
-      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
-    }
-
-    .app-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(26, 136, 255, 0.32);
-      box-shadow: 0 20px 42px rgba(26, 136, 255, 0.08);
-    }
-
-    .app-card strong {
-      display: block;
-      margin-top: 14px;
-      font-size: 17px;
-      letter-spacing: -0.35px;
-    }
-
-    .app-card span {
-      display: block;
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .download-box {
-      text-align: center;
-      padding: 48px 32px;
-      background: linear-gradient(135deg, rgba(26, 136, 255, 0.12), rgba(25, 200, 255, 0.1));
-      border: 1px solid rgba(26, 136, 255, 0.18);
-      box-shadow: 0 18px 48px rgba(26, 136, 255, 0.1);
-    }
-
-    .download-box h2 {
-      font-size: 44px;
-      line-height: 1.08;
-      letter-spacing: -1.4px;
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .download-box p {
-      margin: 16px auto 0;
-      max-width: 760px;
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .footer {
-      padding: 26px 0 48px;
-      text-align: center;
-      color: var(--muted-2);
-      font-size: 14px;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes floatOrb {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(16px);
-      }
-    }
-
-    @keyframes floatY {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-
-    @keyframes phoneFloat {
-      0%, 100% {
-        transform: translateY(0) rotate(0deg);
-      }
-      50% {
-        transform: translateY(-10px) rotate(-0.5deg);
-      }
-    }
-
-    @keyframes pulseSoft {
-      0%, 100% {
-        box-shadow: 0 14px 30px rgba(26, 136, 255, 0.18);
-      }
-      50% {
-        box-shadow: 0 14px 34px rgba(25, 200, 255, 0.16);
-      }
-    }
-
-    @media (max-width: 1120px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .how-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .apps-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .visual-side {
-        min-height: auto;
-        padding-top: 10px;
-      }
-    }
-
-    @media (max-width: 860px) {
-      .header-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        padding: 14px 0;
-      }
-
-      .nav {
-        display: flex;
-        gap: 14px;
-        font-size: 14px;
-        overflow-x: auto;
-        white-space: nowrap;
-        width: 100%;
-        flex-wrap: nowrap;
-        padding-bottom: 4px;
-        scrollbar-width: thin;
-      }
-
-      .nav::-webkit-scrollbar {
-        height: 6px;
-      }
-
-      .nav::-webkit-scrollbar-thumb {
-        background: rgba(42, 115, 255, 0.25);
-        border-radius: 999px;
-      }
-
-      h1 {
-        font-size: 44px;
-      }
-
-      .hero-stats,
-      .features-grid,
-      .how-grid,
-      .apps-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section-head h2,
-      .download-box h2 {
-        font-size: 34px;
-      }
-
-      .floating-note {
-        display: none;
-      }
+    @media (max-width:860px){
+      .header-inner{flex-direction:column;align-items:flex-start;justify-content:center;padding:14px 0}.nav{gap:14px;font-size:14px;overflow-x:auto;white-space:nowrap;width:100%;flex-wrap:nowrap;padding-bottom:4px}h1{font-size:44px}.hero-stats,.features-grid,.how-grid,.apps-grid{grid-template-columns:1fr}.section-head h2,.download-box h2{font-size:34px}.floating-note{display:none}
     }
-
-    @media (max-width: 560px) {
-      .container {
-        padding: 0 18px;
-      }
-
-      .hero {
-        padding-top: 42px;
-      }
-
-      h1 {
-        font-size: 36px;
-        letter-spacing: -1.4px;
-      }
-
-      .hero-copy p {
-        font-size: 16px;
-      }
-
-      .android-phone {
-        width: 100%;
-        max-width: 344px;
-        height: 690px;
-      }
-
-      .other-apps-box,
-      .download-box {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
+    @media (max-width:560px){
+      .container{padding:0 18px}.hero{padding-top:42px}h1{font-size:36px;letter-spacing:-1.4px}.hero-copy p{font-size:16px}.android-phone{width:100%;max-width:344px;height:690px}.other-apps-box,.download-box,.funnel-box{padding-left:18px;padding-right:18px}.trust-pill{font-size:12px}.section{padding:52px 0 72px}
     }
   </style>
 </head>
@@ -861,19 +214,19 @@
 
   <header class="header">
     <div class="container header-inner">
-      <a class="brand-link" href="index.html" aria-label="Go to homepage">
+      <a class="brand-link" href="index.html" aria-label="Go to Appolyze homepage">
         <div class="brand">
-          <img class="brand-logo" src="logo.png" alt="Appolyze logo" />
+          <img class="brand-logo" src="logo.png" alt="Appolyze phone cleaner logo" />
           <div>
             <div class="brand-title">Appolyze</div>
-            <div class="brand-subtitle">Smart Storage Cleaner</div>
+            <div class="brand-subtitle">Phone Cleaner for Android</div>
           </div>
         </div>
       </a>
-
-      <nav class="nav">
+      <nav class="nav" aria-label="Main navigation">
         <a href="#features">Features</a>
         <a href="#how">How it Works</a>
+        <a href="#privacy">Privacy</a>
         <a href="#other-apps">Other Apps</a>
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="#download">Download</a>
@@ -885,73 +238,55 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Smarter Android storage cleaning with a clean, modern experience
-          </div>
-
-          <h1>
-            Clean your phone.<br />
-            <span class="accent">Free up space instantly.</span>
-          </h1>
-
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Smart Android storage cleaner built for safe cleanup</div>
+          <h1>Free Up Space on Your Android Phone <span class="accent">in Seconds.</span></h1>
           <p>
-            Appolyze helps Android users remove clutter, free up storage and stay organized with smart
-            cleanup tools for duplicate photos, similar images, screenshots, downloads, large files and
-            unused apps.
+            Appolyze is a modern phone cleaner and storage cleaner that helps you remove duplicate photos, clean screenshots, find large files, manage downloads, review WhatsApp media and organize Android storage without losing control.
           </p>
-
           <div class="hero-actions">
-            <a
-              class="btn btn-primary"
-              href="https://play.google.com/store/apps/details?id=com.appolyze.doa&hl=tr"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Download App
-            </a>
-            <a class="btn btn-secondary" href="#features">Explore Features</a>
+            <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.appolyze.doa&hl=tr" target="_blank" rel="noopener noreferrer">Download on Google Play</a>
+            <a class="btn btn-secondary" href="#how">See How It Works</a>
           </div>
-
+          <div class="trust-row" aria-label="Appolyze trust points">
+            <span class="trust-pill"><span class="check">✓</span>No automatic deletion</span>
+            <span class="trust-pill"><span class="check">✓</span>Review before cleaning</span>
+            <span class="trust-pill"><span class="check">✓</span>Android storage management</span>
+            <span class="trust-pill"><span class="check">✓</span>Built for everyday cleanup</span>
+          </div>
           <div class="hero-stats">
-            <div class="stat-card">
-              <strong>15+</strong>
-              <span>smart cleaning tools</span>
-            </div>
-            <div class="stat-card">
-              <strong>1-Tap</strong>
-              <span>smart cleanup flow</span>
-            </div>
-            <div class="stat-card">
-              <strong>Private</strong>
-              <span>review-first cleanup</span>
-            </div>
+            <div class="stat-card"><strong>15+</strong><span>smart cleanup tools</span></div>
+            <div class="stat-card"><strong>Safe</strong><span>review-first cleanup</span></div>
+            <div class="stat-card"><strong>Fast</strong><span>storage analyzer flow</span></div>
           </div>
         </div>
 
-        <div class="visual-side">
+        <div class="visual-side" aria-label="Appolyze app preview">
           <div class="visual-glow"></div>
-
-          <div class="floating-note note-1">
-            <small>Cleanup Found</small>
-            <strong>6.5 GB ready</strong>
-          </div>
-
-          <div class="floating-note note-2">
-            <small>Duplicate Photos</small>
-            <strong>1.8 GB detected</strong>
-          </div>
-
-          <div class="floating-note note-3">
-            <small>Unused Apps</small>
-            <strong>12 apps found</strong>
-          </div>
-
+          <div class="floating-note note-1"><small>Storage Cleanup</small><strong>6.5 GB found</strong></div>
+          <div class="floating-note note-2"><small>Duplicate Photos</small><strong>1.8 GB detected</strong></div>
+          <div class="floating-note note-3"><small>Unused Apps</small><strong>12 apps found</strong></div>
           <div class="android-phone">
             <div class="screen">
-              <img class="screen-shot" src="app-screen.jpg" alt="Appolyze app screenshot" />
+              <img class="screen-shot" src="app-screen.jpg" alt="Appolyze Android phone cleaner dashboard screenshot" />
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="problem">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">Why Appolyze</div>
+          <h2>Your phone storage fills up quietly. Appolyze shows exactly what is wasting space.</h2>
+          <p>
+            Old screenshots, repeated photos, forgotten downloads, large videos, APK files and WhatsApp media can take gigabytes of storage. Appolyze turns that mess into a clear cleanup path.
+          </p>
+        </div>
+        <div class="problem-grid">
+          <div class="card problem-card"><h3>Find hidden storage waste</h3><p>Use the storage analyzer to understand what is taking space before deleting anything.</p></div>
+          <div class="card problem-card"><h3>Clean with confidence</h3><p>Preview duplicate photos, screenshots, downloads and large files before you remove them.</p></div>
+          <div class="card problem-card"><h3>Keep your phone organized</h3><p>Build a regular cleanup habit with simple tools made for Android storage management.</p></div>
         </div>
       </div>
     </section>
@@ -960,30 +295,36 @@
       <div class="container">
         <div class="section-head">
           <div class="label">Features</div>
-          <h2>All Appolyze tools in one powerful cleaner app</h2>
+          <h2>One powerful Android cleaner for photos, files, apps and storage</h2>
           <p>
-            Appolyze combines essential Android storage tools into one polished app that helps users
-            understand storage usage, remove unnecessary files and keep their devices running smoothly.
+            Appolyze combines a phone cleaner, duplicate photo cleaner, screenshot cleaner, large files finder, WhatsApp cleaner and storage analyzer in one polished cleanup experience.
           </p>
         </div>
 
         <div class="features-grid">
-          <div class="card feature-card"><div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg></div><h3>Smart Cleanup</h3><p>Review suggested categories and clean unnecessary files through one smart cleanup flow.</p></div>
-          <div class="card feature-card"><div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><h3>Duplicate Photos Cleaner</h3><p>Find repeated images and remove unnecessary copies to recover gallery space quickly.</p></div>
-          <div class="card feature-card"><div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 7-7"/><path d="M14 8h6v6"/></svg></div><h3>Similar Photos Finder</h3><p>Detect visually similar photos so users can keep only the best shots.</p></div>
-          <div class="card feature-card"><div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M3 12s3-6 9-6 9 6 9 6-3 6-9 6-9-6-9-6z"/></svg></div><h3>Blur Photos Detector</h3><p>Spot blurry images that do not add value and remove low-quality photos faster.</p></div>
-          <div class="card feature-card"><div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5h14v14H5z"/><path d="M9 9h6v6H9z"/></svg></div><h3>Screenshots Cleaner</h3><p>Delete old screenshots and keep the gallery lighter and better organized.</p></div>
-          <div class="card feature-card"><div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div><h3>Downloads Cleaner</h3><p>Review downloaded files and clear old or forgotten items in seconds.</p></div>
-          <div class="card feature-card"><div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v12H4z"/><path d="M8 10h8"/><path d="M8 14h5"/></svg></div><h3>Documents Cleaner</h3><p>Find stored documents and remove files that are no longer needed.</p></div>
-          <div class="card feature-card"><div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18"/><path d="M5 7v11a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7"/><path d="M9 11v5"/><path d="M15 11v5"/><path d="M10 3h4"/></svg></div><h3>WhatsApp Cleaner</h3><p>Manage WhatsApp media buildup and free space used by shared files and chats.</p></div>
-          <div class="card feature-card"><div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 9h8"/><path d="M10 13h8"/><path d="M6 9h.01"/><path d="M6 13h.01"/></svg></div><h3>Large Files Finder</h3><p>Surface the biggest files instantly and decide what should stay and what should go.</p></div>
-          <div class="card feature-card"><div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div><h3>Large Apps Finder</h3><p>See which installed apps use the most space and optimize your phone faster.</p></div>
-          <div class="card feature-card"><div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12"/><path d="M8 7h8"/><rect x="5" y="7" width="14" height="14" rx="2"/></svg></div><h3>Unused Apps Finder</h3><p>Discover apps you rarely use and free valuable storage without manual searching.</p></div>
-          <div class="card feature-card"><div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><h3>Duplicate Contacts Cleaner</h3><p>Identify repeated contacts and keep the address book cleaner and easier to manage.</p></div>
-          <div class="card feature-card"><div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div><h3>APK Cleaner</h3><p>Find leftover APK installer files and remove them to reclaim storage space.</p></div>
-          <div class="card feature-card"><div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div><h3>Archives Cleaner</h3><p>Locate ZIP and archive files that quietly occupy valuable device storage.</p></div>
-          <div class="card feature-card"><div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg></div><h3>Other Files Explorer</h3><p>Explore uncategorized files and understand what is filling up your Android device.</p></div>
-          <div class="card feature-card"><div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 4v5c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V7l7-4z"/></svg></div><h3>Safe & Secure Cleanup Flow</h3><p>Review-first design helps users stay in control before any file is deleted.</p></div>
+          <div class="card feature-card"><div class="icon-box">⚡</div><h3>Smart Cleanup</h3><p>Review suggested cleanup categories and free up storage with a guided smart cleanup flow.</p></div>
+          <div class="card feature-card"><div class="icon-box">🖼️</div><h3>Duplicate Photo Cleaner</h3><p>Find repeated photos and remove unnecessary copies from your Android gallery.</p></div>
+          <div class="card feature-card"><div class="icon-box">✨</div><h3>Similar Photos Finder</h3><p>Detect similar images and keep the best shots while reducing gallery clutter.</p></div>
+          <div class="card feature-card"><div class="icon-box">👁️</div><h3>Blur Photos Detector</h3><p>Spot blurry images and remove low-quality photos faster after reviewing them.</p></div>
+          <div class="card feature-card"><div class="icon-box">📸</div><h3>Screenshot Cleaner</h3><p>Clean old screenshots and make your gallery easier to browse.</p></div>
+          <div class="card feature-card"><div class="icon-box">⬇️</div><h3>Downloads Cleaner</h3><p>Review forgotten downloads and remove files you no longer need.</p></div>
+          <div class="card feature-card"><div class="icon-box">📄</div><h3>Documents Cleaner</h3><p>Find stored documents and decide which files should stay or go.</p></div>
+          <div class="card feature-card"><div class="icon-box">💬</div><h3>WhatsApp Cleaner</h3><p>Manage WhatsApp media buildup including shared photos, videos and files.</p></div>
+          <div class="card feature-card"><div class="icon-box">📦</div><h3>Large Files Finder</h3><p>See the biggest files on your phone and reclaim storage faster.</p></div>
+          <div class="card feature-card"><div class="icon-box">📱</div><h3>Large Apps Finder</h3><p>Discover which installed apps use the most storage space.</p></div>
+          <div class="card feature-card"><div class="icon-box">🕒</div><h3>Unused Apps Finder</h3><p>Find rarely used apps and clean storage without manual searching.</p></div>
+          <div class="card feature-card"><div class="icon-box">🔐</div><h3>Safe Cleanup Flow</h3><p>Nothing is removed without user review and confirmation.</p></div>
+        </div>
+
+        <div class="funnel-box">
+          <h2>From “storage full” to “clean phone” with a simple guided flow.</h2>
+          <p>
+            Appolyze is designed around action: scan your Android storage, understand what is wasting space, preview cleanup suggestions and remove only what you choose. This makes the app easier to trust, easier to use and stronger for conversion.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.appolyze.doa&hl=tr" target="_blank" rel="noopener noreferrer">Start Cleaning Now</a>
+            <a class="btn btn-secondary" href="#privacy">Why It Is Safe</a>
+          </div>
         </div>
       </div>
     </section>
@@ -992,34 +333,33 @@
       <div class="container">
         <div class="section-head">
           <div class="label">How it Works</div>
-          <h2>Simple, fast and transparent cleaning experience</h2>
+          <h2>Simple, fast and transparent phone cleaning</h2>
           <p>
-            Appolyze is designed to give users full control over their storage. Every step is clear,
-            transparent and safe — no automatic deletions, no hidden actions.
+            Appolyze gives users full control over every cleanup step. Scan, review, select and clean — with no confusing screens and no automatic file deletion.
           </p>
         </div>
-
         <div class="how-grid">
-          <div class="card how-card">
-            <div class="step-number">1</div>
-            <h3>Scan your device</h3>
-            <p>Appolyze analyzes your storage and categorizes files such as photos, videos, downloads, documents and apps. Everything is processed locally on your device.</p>
-          </div>
-          <div class="card how-card">
-            <div class="step-number">2</div>
-            <h3>Review smart suggestions</h3>
-            <p>The app detects duplicate photos, similar images, large files, screenshots and unused apps. Users can preview results before taking any action.</p>
-          </div>
-          <div class="card how-card">
-            <div class="step-number">3</div>
-            <h3>Clean with confidence</h3>
-            <p>Select what you want to remove and free up space instantly. Nothing is deleted without your confirmation, ensuring a safe and controlled cleanup experience.</p>
-          </div>
-          <div class="card how-card">
-            <div class="step-number">4</div>
-            <h3>Stay optimized</h3>
-            <p>Use Appolyze regularly to keep your device clean, organized and running smoothly without unnecessary storage usage.</p>
-          </div>
+          <div class="card how-card"><div class="step-number">1</div><h3>Scan storage</h3><p>Appolyze analyzes photos, videos, screenshots, downloads, documents, apps and other files.</p></div>
+          <div class="card how-card"><div class="step-number">2</div><h3>Review results</h3><p>See duplicate photos, similar images, large files, WhatsApp media and unused apps in clear categories.</p></div>
+          <div class="card how-card"><div class="step-number">3</div><h3>Select files</h3><p>Preview items and choose exactly what you want to remove before cleanup.</p></div>
+          <div class="card how-card"><div class="step-number">4</div><h3>Free up space</h3><p>Clean selected items and keep your Android phone lighter, cleaner and more organized.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="privacy" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">Privacy & Control</div>
+          <h2>Safe cleanup starts with user control</h2>
+          <p>
+            Appolyze is built to help users manage device storage confidently. The experience is clear, review-first and focused on letting users decide what to delete.
+          </p>
+        </div>
+        <div class="card privacy-strip">
+          <div class="privacy-item"><strong>No blind cleaning</strong><span>Users review files before taking action.</span></div>
+          <div class="privacy-item"><strong>Clear categories</strong><span>Photos, screenshots, downloads, apps and files are separated for easier decisions.</span></div>
+          <div class="privacy-item"><strong>Transparent flow</strong><span>The app explains what was found and why it may be useful to clean.</span></div>
         </div>
       </div>
     </section>
@@ -1028,94 +368,17 @@
       <div class="container">
         <div class="section-head">
           <div class="label">Other Apps</div>
-          <h2>Ready for your growing app portfolio</h2>
-          <p>This area is prepared for your other utility apps and can later link directly to each Play Store listing.</p>
+          <h2>More Appolyze tools for everyday phone productivity</h2>
+          <p>Explore focused apps from the Appolyze ecosystem for gallery cleanup, WhatsApp cleanup and faster messaging workflows.</p>
         </div>
-
         <div class="card other-apps-box">
           <h3>Explore our other apps</h3>
-          <p>Perfect place for cross-promotion once you add your other app links.</p>
-
+          <p>Cross-promote related tools and guide users to the right solution for their storage and messaging needs.</p>
           <div class="apps-grid">
-            <a
-              class="app-link"
-              href="https://play.google.com/store/apps/details?id=com.appolyze.duplicate&hl=tr"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open Duplicate Photo Cleaner on Google Play"
-            >
-              <div class="app-card">
-                <div class="icon-box">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="3" width="18" height="18" rx="4"/>
-                    <circle cx="8.5" cy="8.5" r="1.5"/>
-                    <path d="M21 15l-5-5L5 21"/>
-                  </svg>
-                </div>
-                <strong>Duplicate Photo Cleaner</strong>
-                <span>Focused cleanup for repeated images and gallery organization.</span>
-              </div>
-            </a>
-
-            <a
-              class="app-link"
-              href="https://play.google.com/store/apps/details?id=com.wcappolyze.doa&hl=tr"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open WhatsApp Cleaner on Google Play"
-            >
-              <div class="app-card">
-                <div class="icon-box">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 5h14v14H5z"/>
-                    <path d="M9 9h6v6H9z"/>
-                  </svg>
-                </div>
-                <strong>WhatsApp Cleaner</strong>
-                <span>Lightweight utility for removing old WhatsApp files and media faster.</span>
-              </div>
-            </a>
-
-            <a
-              class="app-link"
-              href="#"
-              aria-label="Open Screenshot Cleaner"
-            >
-              <div class="app-card">
-                <div class="icon-box">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 5h14v14H5z"/>
-                    <path d="M9 9h6v6H9z"/>
-                    <path d="M3 9V5a2 2 0 0 1 2-2h4"/>
-                    <path d="M15 3h4a2 2 0 0 1 2 2v4"/>
-                    <path d="M21 15v4a2 2 0 0 1-2 2h-4"/>
-                    <path d="M9 21H5a2 2 0 0 1-2-2v-4"/>
-                  </svg>
-                </div>
-                <strong>Screenshot Cleaner</strong>
-                <span>Clean old screenshots and keep your gallery organized with a simple cleanup flow.</span>
-              </div>
-            </a>
-
-            <a
-              class="app-link"
-              href="https://play.google.com/store/apps/details?id=com.doganer.chatvia&hl=tr"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open WhatsApp Direct Message on Google Play"
-            >
-              <div class="app-card">
-                <div class="icon-box">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-                    <path d="M9 10h6"/>
-                    <path d="M9 14h4"/>
-                  </svg>
-                </div>
-                <strong>WhatsApp Direct Message</strong>
-                <span>Start WhatsApp chats instantly without saving phone numbers.</span>
-              </div>
-            </a>
+            <a class="app-link" href="https://play.google.com/store/apps/details?id=com.appolyze.duplicate&hl=tr" target="_blank" rel="noopener noreferrer"><div class="app-card"><div class="icon-box">🖼️</div><strong>Duplicate Photo Cleaner</strong><span>Focused cleanup for repeated images and gallery organization.</span></div></a>
+            <a class="app-link" href="https://play.google.com/store/apps/details?id=com.wcappolyze.doa&hl=tr" target="_blank" rel="noopener noreferrer"><div class="app-card"><div class="icon-box">💬</div><strong>WhatsApp Cleaner</strong><span>Remove old WhatsApp media and shared files faster.</span></div></a>
+            <a class="app-link" href="#"><div class="app-card"><div class="icon-box">📸</div><strong>Screenshot Cleaner</strong><span>Clean old screenshots and keep your gallery organized.</span></div></a>
+            <a class="app-link" href="https://play.google.com/store/apps/details?id=com.doganer.chatvia&hl=tr" target="_blank" rel="noopener noreferrer"><div class="app-card"><div class="icon-box">🚀</div><strong>WhatsApp Direct Message</strong><span>Start WhatsApp chats instantly without saving phone numbers.</span></div></a>
           </div>
         </div>
       </div>
@@ -1124,18 +387,12 @@
     <section id="download" class="section">
       <div class="container">
         <div class="download-box">
-          <h2>Make more space for what matters</h2>
-          <p>Appolyze gives Android users a cleaner, faster and more organized device experience with smart cleanup tools built for everyday storage management.</p>
-
+          <h2>Ready to clean your Android phone and free up storage?</h2>
+          <p>
+            Download Appolyze and start with a smart storage analyzer, duplicate photo cleaner, screenshot cleaner, large files finder and safe cleanup flow built for Android users.
+          </p>
           <div class="hero-actions" style="justify-content:center; margin-top:28px;">
-            <a
-              class="btn btn-primary"
-              href="https://play.google.com/store/apps/details?id=com.appolyze.doa&hl=tr"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get it on Google Play
-            </a>
+            <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.appolyze.doa&hl=tr" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
             <a class="btn btn-secondary" href="privacy-policy.html">Read Privacy Policy</a>
           </div>
         </div>
