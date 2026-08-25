@@ -22,10 +22,10 @@
       --text:#f7f7fb; --muted:#a8a8b8; --muted2:#747487; --line:rgba(255,255,255,.09);
       --purple:#9a55ff; --pink:#e450ff; --blue:#36a6ff; --cyan:#49d4ff; --green:#6ce0ac;
       --radius:28px; --shadow:0 30px 90px rgba(0,0,0,.45);
-      --max:1180px;
+      --max:1240px;
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth;background:var(--bg)}
+    html{scroll-behavior:smooth;background:var(--bg);overflow-x:hidden}
     body{margin:0;background:
       radial-gradient(1000px 620px at 78% 2%,rgba(94,57,255,.19),transparent 62%),
       radial-gradient(800px 520px at 20% 12%,rgba(229,69,255,.09),transparent 62%),
@@ -43,7 +43,7 @@
     .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:8px 12px;border:1px solid rgba(166,101,255,.26);background:rgba(114,65,255,.08);border-radius:999px;color:#d7c4ff;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
     .eyebrow::before{content:"";width:6px;height:6px;border-radius:99px;background:linear-gradient(135deg,var(--pink),var(--blue));box-shadow:0 0 18px var(--purple)}
     h1,h2,h3,p{margin-top:0}
-    h1{font-size:clamp(48px,6.5vw,94px);line-height:.95;letter-spacing:-.065em;margin-bottom:26px;max-width:850px}
+    h1{font-size:clamp(50px,5.1vw,82px);line-height:.98;letter-spacing:-.06em;margin-bottom:26px;max-width:720px;text-wrap:balance}
     h2{font-size:clamp(36px,4.5vw,64px);line-height:1.02;letter-spacing:-.052em;margin-bottom:18px}
     h3{font-size:21px;letter-spacing:-.03em}
     .gradient-text{background:linear-gradient(100deg,#fff 0%,#c8b5ff 27%,#e152ff 55%,#57b4ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -56,12 +56,12 @@
     .nav-cta{padding:10px 14px;border-radius:12px;background:#fff;color:#08080c;font-size:12px;font-weight:800;white-space:nowrap}
     .menu-btn{display:none;margin-left:auto;width:42px;height:42px;border-radius:13px;border:1px solid var(--line);background:#11111a;align-items:center;justify-content:center;cursor:pointer}.menu-btn span,.menu-btn::before,.menu-btn::after{content:"";display:block;width:17px;height:1.5px;background:#fff;position:absolute;transition:.2s}.menu-btn span{transform:translateY(0)}.menu-btn::before{transform:translateY(-6px)}.menu-btn::after{transform:translateY(6px)}.menu-btn.open span{opacity:0}.menu-btn.open::before{transform:rotate(45deg)}.menu-btn.open::after{transform:rotate(-45deg)}
 
-    .hero{min-height:calc(100vh - 90px);padding:98px 0 70px;display:flex;align-items:center;position:relative}
-    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center;width:100%}
-    .hero-copy p{max-width:660px;font-size:18px;line-height:1.7;color:#b4b4c1;margin-bottom:34px}
+    .hero{min-height:calc(100vh - 90px);padding:78px 0 70px;display:flex;align-items:center;position:relative}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:64px;align-items:center}
+    .hero-copy{min-width:0}.hero-copy p{max-width:610px;font-size:17px;line-height:1.72;color:#b4b4c1;margin-bottom:32px}
     .hero-actions{display:flex;flex-wrap:wrap;gap:12px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:0 18px;border-radius:14px;border:1px solid var(--line);font-size:13px;font-weight:800;transition:.22s;cursor:pointer}.btn.primary{background:linear-gradient(135deg,#8b43ff,#cf48ff 53%,#3a9dff);border-color:transparent;box-shadow:0 13px 40px rgba(132,65,255,.28)}.btn.primary:hover{transform:translateY(-2px);box-shadow:0 20px 48px rgba(132,65,255,.36)}.btn.secondary{background:rgba(255,255,255,.035)}.btn.secondary:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16)}
     .hero-note{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}.hero-note span{font-size:11px;color:#9b9bac;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.06)}
-    .hero-art{position:relative;min-height:580px;display:flex;align-items:center;justify-content:center;perspective:1200px}
+    .hero-art{position:relative;min-width:0;min-height:560px;display:flex;align-items:center;justify-content:center;perspective:1200px}
     .halo{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(157,74,255,.16),rgba(69,106,255,.07) 42%,transparent 68%);filter:blur(2px)}
     .orbit{position:absolute;border:1px solid rgba(148,92,255,.19);border-radius:50%;width:470px;height:260px;transform:rotate(-13deg);box-shadow:0 0 60px rgba(107,60,255,.06) inset}.orbit.o2{width:390px;height:390px;transform:rotate(24deg);border-color:rgba(64,170,255,.11)}
     .phone{width:286px;height:570px;border-radius:48px;padding:9px;background:linear-gradient(145deg,#303043,#11111b 40%,#4b3d72 82%,#181821);box-shadow:0 45px 100px rgba(0,0,0,.58),0 0 60px rgba(112,65,255,.14);transform:rotateY(-13deg) rotateX(5deg) rotateZ(5deg);transition:transform .35s ease;position:relative;z-index:3}.phone::before{content:"";position:absolute;left:50%;top:17px;transform:translateX(-50%);width:84px;height:23px;background:#050508;border-radius:999px;z-index:4}.screen{height:100%;border-radius:40px;overflow:hidden;background:radial-gradient(circle at 65% 18%,rgba(118,62,255,.29),transparent 30%),linear-gradient(180deg,#090911,#0a0a13);border:1px solid rgba(255,255,255,.06);padding:56px 20px 22px;display:flex;flex-direction:column}.screen-brand{display:flex;align-items:center;gap:8px;font-size:10px;color:#c8c8d3;font-weight:700}.mini-a{width:16px;height:16px}.screen-title{margin-top:44px;font-size:30px;line-height:1.02;letter-spacing:-.05em;font-weight:800}.screen-title span{color:#a7a7b7;font-weight:500}.app-orbit{position:relative;flex:1;margin-top:26px}.screen-icon{position:absolute;width:74px;height:74px;border-radius:22px;object-fit:cover;box-shadow:0 10px 35px rgba(0,0,0,.45),0 0 32px rgba(147,74,255,.12);border:1px solid rgba(255,255,255,.12)}.screen-icon.main{width:104px;height:104px;left:50%;top:42%;transform:translate(-50%,-50%);border-radius:29px;box-shadow:0 18px 60px rgba(0,0,0,.55),0 0 50px rgba(226,70,255,.22)}.screen-icon.i1{left:12px;top:20px}.screen-icon.i2{right:12px;top:48px}.screen-icon.i3{left:25px;bottom:22px;width:60px;height:60px;border-radius:18px}.screen-icon.i4{right:22px;bottom:14px;width:60px;height:60px;border-radius:18px}.screen-bottom{border-top:1px solid var(--line);padding-top:14px;color:#828296;font-size:10px;display:flex;justify-content:space-between}.float-card{position:absolute;z-index:4;width:82px;height:82px;border-radius:22px;background:linear-gradient(145deg,rgba(31,31,49,.92),rgba(14,14,24,.9));border:1px solid rgba(255,255,255,.1);box-shadow:0 18px 50px rgba(0,0,0,.35),0 0 30px rgba(115,69,255,.12);padding:10px}.float-card img{width:100%;height:100%;object-fit:cover;border-radius:15px}.f1{left:4%;top:20%;transform:rotate(-10deg)}.f2{right:0;top:28%;transform:rotate(10deg)}.f3{left:9%;bottom:18%;transform:rotate(7deg)}
@@ -85,6 +85,16 @@
     .mobile-panel{display:none}
 
     @media (pointer:fine) and (min-width:901px){.hero-art:hover .phone{transform:rotateY(-7deg) rotateX(2deg) rotateZ(2deg) translateY(-4px)}}
+    @media (min-width:901px){html[lang="tr"] h1{font-size:clamp(52px,4.15vw,70px);max-width:680px;line-height:.99}}
+    @media (min-width:901px) and (max-width:1280px){
+      :root{--max:1120px}
+      h1{font-size:clamp(48px,5.4vw,70px);max-width:650px}
+      .hero-grid{gap:42px}
+      .hero-art{min-height:520px}
+      .phone{width:260px;height:520px}
+      .halo{width:460px;height:460px}.orbit{width:420px;height:230px}.orbit.o2{width:350px;height:350px}
+      .float-card{width:74px;height:74px}
+    }
     @media (max-width:980px){
       .shell{width:min(100% - 32px,var(--max))}.navlinks,.nav-cta{display:none}.menu-btn{display:flex;position:relative}.hero{padding-top:70px}.hero-grid{grid-template-columns:1fr;gap:16px}.hero-copy{position:relative;z-index:5}.hero-copy p{font-size:16px}.hero-art{min-height:500px;margin-top:16px}.phone{width:260px;height:520px;transform:rotateY(-8deg) rotateX(3deg) rotateZ(3deg)}.halo{width:440px;height:440px}.products{grid-template-columns:1fr 1fr}.product.featured{grid-column:1/-1;grid-row:auto;min-height:500px}.cap-grid{grid-template-columns:1fr 1fr}.manifesto{grid-template-columns:1fr}.build{grid-template-columns:1fr}.mobile-panel{position:fixed;z-index:990;top:88px;left:16px;right:16px;background:rgba(10,10,16,.97);border:1px solid var(--line);border-radius:20px;padding:12px;box-shadow:0 24px 70px rgba(0,0,0,.5);backdrop-filter:blur(20px)}.mobile-panel.open{display:block}.mobile-panel a{display:flex;padding:14px 13px;border-radius:12px;color:#cacad6;font-size:13px}.mobile-panel a:hover{background:rgba(255,255,255,.05)}.mobile-panel .mobile-actions{display:flex;gap:8px;padding:10px 8px 3px}.mobile-panel .btn{flex:1;min-height:44px}
     }
@@ -232,7 +242,7 @@
       },
       tr:{
         "nav.products":"Ürünler","nav.studio":"Stüdyo","nav.process":"Süreç","nav.contact":"İletişim","nav.cta":"Projenizi başlatın",
-        "hero.eyebrow":"Bağımsız Mobil Ürün Stüdyosu","hero.line1":"İnsanların kullanmak istediği","hero.line2":"mobil ürünler geliştiriyoruz.","hero.body":"Appolyze; yapay zeka, fayda ve üretkenlik alanlarında odaklı mobil ürünler tasarlar ve geliştirir. Kendi uygulamalarımızı üretiyor, güçlü fikirlere sahip marka ve girişimciler için seçili özel ürünler geliştiriyoruz.","hero.cta1":"Ürünlerimizi keşfedin","hero.cta2":"Appolyze ile geliştirin",
+        "hero.eyebrow":"Bağımsız Mobil Ürün Stüdyosu","hero.line1":"İnsanların severek kullandığı","hero.line2":"mobil ürünler geliştiriyoruz.","hero.body":"Appolyze; yapay zeka, fayda ve üretkenlik alanlarında odaklı mobil ürünler tasarlar ve geliştirir. Kendi uygulamalarımızı üretiyor, güçlü fikirlere sahip marka ve girişimciler için seçili özel ürünler geliştiriyoruz.","hero.cta1":"Ürünlerimizi keşfedin","hero.cta2":"Appolyze ile geliştirin",
         "phone.overline":"Bir portföy dolusu","phone.title":"faydalı ürün.",
         "trust.1":"Ekrandan önce strateji","trust.2":"Gerçek cihazlar için","trust.3":"Faydalı entegrasyonlar","trust.4":"Yayın disiplini","trust.5":"Gelişebilen ürünler",
         "products.eyebrow":"Seçili ürünler","products.title":"Bir bakış açısıyla geliştirilen ürünler.","products.body":"Portföyümüz tüketici yapay zekasından odaklı fayda araçlarına uzanır. Her uygulama net bir iş, sade bir deneyim ve tekrar kullanım sebebi etrafında tasarlanır.","product.glowza":"Tek bir soruya odaklanan yapay zeka destekli saç modeli ve glow-up keşfi: gerçekten size ne yakışıyor?","product.phone":"Gereksiz dosyaları bulmayı ve depolamayı kontrol altında tutmayı kolaylaştıran odaklı Android aracı.","product.duplicate":"Tekrarlanan medyaları hızlıca bulun ve depolama temizliğini daha anlaşılır hale getirin.","product.screenshot":"Galerinizdeki ekran görüntüsü kalabalığını gözden geçirmenin ve temizlemenin daha sade yolu.","product.chat":"Basit ve odaklı bir iletişim aracıyla konuşmaları daha hızlı başlatın.","product.view":"Google Play'de görüntüle",
@@ -243,8 +253,9 @@
         "contact.eyebrow":"Konuşmaya başlayalım","contact.a":"Her gün açılmaya değer","contact.b":"bir ürün geliştirelim.","contact.body":"Ne geliştirmek istediğinizi anlatın. Satış metniyle değil, ürünle başlayalım.","contact.cta":"support@appolyze.com","contact.note":"Proje talepleri Appolyze ekibi tarafından doğrudan değerlendirilir.","footer.copy":"Özenle geliştirilen mobil ürünler.","toast.copy":"E-posta kopyalandı.","toast.idea":"Önce fikrinizi kısaca yazın."
       }
     };
-    let lang=localStorage.getItem('appolyze-lang')||((navigator.language||'').toLowerCase().startsWith('tr')?'tr':'en');
-    const apply=()=>{document.documentElement.lang=lang;document.querySelectorAll('[data-i18n]').forEach(el=>{const v=i18n[lang][el.dataset.i18n];if(v)el.textContent=v});document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{const v=i18n[lang][el.dataset.i18nPlaceholder];if(v)el.placeholder=v});document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));localStorage.setItem('appolyze-lang',lang)};
+    let savedLang=null;try{savedLang=localStorage.getItem('appolyze-lang')}catch(e){}
+    let lang=savedLang||((navigator.language||'').toLowerCase().startsWith('tr')?'tr':'en');
+    const apply=()=>{document.documentElement.lang=lang;document.querySelectorAll('[data-i18n]').forEach(el=>{const v=i18n[lang][el.dataset.i18n];if(v)el.textContent=v});document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{const v=i18n[lang][el.dataset.i18nPlaceholder];if(v)el.placeholder=v});document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));try{localStorage.setItem('appolyze-lang',lang)}catch(e){}};
     document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>{lang=b.dataset.lang;apply()})); apply();
     const menuBtn=document.getElementById('menuBtn'),panel=document.getElementById('mobilePanel');
     const closeMenu=()=>{menuBtn.classList.remove('open');panel.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');panel.setAttribute('aria-hidden','true')};
